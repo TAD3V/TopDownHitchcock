@@ -31,10 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(horizontal, vertical, 0f);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
-
-
         if (horizontal != 0 && vertical != 0)
         {
             horizontal *= moveLimiter;
