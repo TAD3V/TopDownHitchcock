@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 20.0f;
     //public float lookingForce = 20f;
+
+    
 
     void Start()
     {
@@ -40,3 +43,5 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
     }
 }
+
+

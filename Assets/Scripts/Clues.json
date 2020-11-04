@@ -1,60 +1,12 @@
 {
-  "Clues": {
-    "Clue 1": {
-      "Clue Text": "Clue Text",
-      "Clue Places": {
-        "Coffin": false,
-        "Piano": false,
-        "DiningTable": false,
-        "Bathtub": false,
-        "BedSmall": false,
-        "BedLarge": false,
-        "Stove": false,
-        "PorchChair": false,
-        "Toilet": false
-      }
-    },
-    "Clue 2": {
-      "Clue Text": "Clue Text",
-      "Clue Places": {
-        "Coffin": false,
-        "Piano": false,
-        "DiningTable": false,
-        "Bathtub": false,
-        "BedSmall": false,
-        "BedLarge": false,
-        "Stove": false,
-        "PorchChair": false,
-        "Toilet": false
-      }
-    },
-    "Clue 3": {
-      "Clue Text": "Clue Text",
-      "Clue Places": {
-        "Coffin": false,
-        "Piano": false,
-        "DiningTable": false,
-        "Bathtub": false,
-        "BedSmall": false,
-        "BedLarge": false,
-        "Stove": false,
-        "PorchChair": false,
-        "Toilet": false
-      }
-    },
-    "Clue 4": {
-      "Clue Text": "Clue Text",
-      "Clue Places": {
-        "Coffin": false,
-        "Piano": false,
-        "DiningTable": false,
-        "Bathtub": false,
-        "BedSmall": false,
-        "BedLarge": false,
-        "Stove": false,
-        "PorchChair": false,
-        "Toilet": false
-      }
-    }
-  }
+    "Items": [
+        {
+            "clueLocation": 12,
+            "clueText": "Hola"
+        },
+        {
+            "clueLocation": 20,
+            "clueText": "Hello"
+        }
+    ]
 }
