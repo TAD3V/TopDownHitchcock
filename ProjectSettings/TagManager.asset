@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Clue
+  - Piano
+  - CreepChair
+  - Coffin
+  - Ciggies
+  - Outside
+  - Bed
+  - Bath
+  - Dining
+  - Kitchen
   layers:
   - Default
   - TransparentFX

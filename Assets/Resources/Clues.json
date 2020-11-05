@@ -1,0 +1,41 @@
+{
+  "Items": [
+    {
+      "clueLocation": 1,
+      "clueText": "Hitchcock has a habit of including homosexual themes in his villians without directly stating it as the depiction of homosexuality in films was banned until 1974."
+      "clueLetter": "B"
+    },
+    {
+      "clueLocation": 2,
+      "clueText": "In over ten of his movies, Alfred Hitchcock uses the theme of The Wrong Man. This is when the main character is in the wrong place at the wrong time and is suspected of a crime of some sort."
+    },
+	{
+      "clueLocation": 3,
+      "clueText": "Hitchcock gave his wife creative control over most of his movies as he trusted her opinion over anyone elses. As he went further into his career she was relegated more and more backstage but still was consulted for major decisions."
+    },
+	{
+      "clueLocation": 4,
+      "clueText": ""
+    },
+	{
+      "clueLocation": 5,
+      "clueText": "This is a Clue"
+    },
+	{
+      "clueLocation": 6,
+      "clueText": "This is a Clue"
+    },
+	{
+      "clueLocation": 7,
+      "clueText": "This is a Clue"
+    },
+	{
+      "clueLocation": 8,
+      "clueText": "This is a Clue"
+    },
+	{
+      "clueLocation": 9,
+      "clueText": "This is a Clue"
+    }
+  ]
+}
