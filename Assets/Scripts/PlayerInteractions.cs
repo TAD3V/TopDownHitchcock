@@ -3,69 +3,74 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 using System;
+using UnityEngine.UI;
 
 public class PlayerInteractions : MonoBehaviour
 {
     public BlockReference clueBlock;
+    public BlockReference endBlock;
     public VariableReference clue;
+    public IntegerVariable end;
+
+    public Text text;
 
     ClueObject[] clueReread;
 
     public TextAsset textFile;
 
-    public GameObject clueCollision;
+    public GameObject endText;
 
-    public CircleCollider2D circleCol;
+    private int randFilm;
+    public int randFil;
+    private int numOfClues;
 
-    System.Random randomDirection;
-
-    private void Awake()
-    {
-        
-    }
-
-    // Use this for initialization
     void Start()
     {
-        clue.Set("Use the Arrow Keys to Move Your Character and press the Spacebar to Interact with Objects and find Clues.");
+        clue.Set("Use the Arrow Keys to Move Your Character and press the Spacebar to Interact with Objects and find Clues. Hint: Go to the Piano for you're first clue. Once You Find All Nine Clues Interact with the White Spot Here.");
         clueBlock.Execute();
-
-        /*clueObjects[0] = new ClueObject();
-        clueObjects[0].clueLocation = 12;
-        clueObjects[0].clueText = "Hola";
-
-        clueObjects[1] = new ClueObject();
-        clueObjects[1].clueLocation = 20;
-        clueObjects[1].clueText = "Hello";
-
-        string json = JsonHelper.ToJson(clueObjects, true);
-        Debug.Log(json);*/
-
-        randomDirection = new System.Random();
 
         string jsonFile = textFile.text;
 
+        randFilm = UnityEngine.Random.Range(0, 2);
+
+        text = endText.GetComponent<Text>();
+        text.color = new Color(text.color.r, text.color.g, text.color.b, 0f);
+
+        end.Equals(4);
+
+        numOfClues = 0;
+
+        switch (randFilm)
+        {
+            case 0:
+                randFil = 0;
+                break;
+            case 1:
+                randFil = 9;
+                break;
+            case 2:
+                randFil = 9;
+                break;
+        }
+
+        Debug.Log(randFilm);
+
         clueReread = JsonHelper.FromJson<ClueObject>(jsonFile);
-
-        Debug.Log(clueReread[0].clueLocation);
-        Debug.Log(clueReread[0].clueText);
-
-        Debug.Log(clueReread[1].clueLocation);
-        Debug.Log(clueReread[1].clueText);
-
-        Debug.Log(clueReread.Length);
     }
 
-    // Update is called once per frame
     void Update()
     {
-          
+        string i = end.ToString();
+        string j = randFilm.ToString();
+
+        if (i == j)
+        {
+            EndGame();
+        } 
     }
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        // col.gameObject;
-
         if (Input.GetKeyDown("space"))
         {
             switch (col.gameObject.tag)
@@ -73,73 +78,100 @@ public class PlayerInteractions : MonoBehaviour
                 case "Piano":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set("Hitchcock has a habit of including homosexual themes in his villians without directly stating it as the depiction of homosexuality in films was banned until 1974.");
+                    clue.Set(clueReread[0 + randFil].clueText);
                     clueBlock.Execute();
+
+                    numOfClues++;
 
                     break;
                 case "CreepChair":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set("In over ten of his movies, Alfred Hitchcock uses the theme of The Wrong Man. This is when the main character is in the wrong place at the wrong time and is suspected of a crime of some sort.");
+                    clue.Set(clueReread[1 + randFil].clueText);
                     clueBlock.Execute();
+
+                    numOfClues++;
 
                     break;
                 case "Coffin":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set("Hitchcock gave his wife creative control over most of his movies as he trusted her opinion over anyone elses.As he went further into his career she was relegated more and more backstage but still was consulted for major decisions.") ;
+                    clue.Set(clueReread[2 + randFil].clueText) ;
                     clueBlock.Execute();
+
+                    numOfClues++;
 
                     break;
                 case "Ciggies":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set(clueReread[3].clueText);
+                    clue.Set(clueReread[3 + randFil].clueText);
                     clueBlock.Execute();
+
+                    numOfClues++;
 
                     break;
                 case "Outside":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set(clueReread[4].clueText);
+                    clue.Set(clueReread[4 + randFil].clueText);
                     clueBlock.Execute();
+
+                    numOfClues++;
 
                     break;
                 case "Bed":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set(clueReread[5].clueText);
+                    clue.Set(clueReread[5 + randFil].clueText);
                     clueBlock.Execute();
+
+                    numOfClues++;
 
                     break;
                 case "Bath":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set(clueReread[6].clueText);
+                    clue.Set(clueReread[6 + randFil].clueText);
                     clueBlock.Execute();
+
+                    numOfClues++;
 
                     break;
                 case "Dining":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set(clueReread[7].clueText);
+                    clue.Set(clueReread[7 + randFil].clueText);
                     clueBlock.Execute();
+
+                    numOfClues++;
 
                     break;
                 case "Kitchen":
                     Debug.Log(col.gameObject.tag);
 
-                    clue.Set(clueReread[8].clueText);
+                    clue.Set(clueReread[8 + randFil].clueText);
                     clueBlock.Execute();
+
+                    numOfClues++;
+
+                    break;
+                case "End":
+                    if(numOfClues >= 6)
+                    {
+                        Debug.Log("Ending Sequence Started");
+
+                        endBlock.Execute();
+                    }
 
                     break;
             }
-            /*int randomNum = randomDirection.Next(0, clueReread.Length);
-
-            clue.Set(clueReread[randomNum].clueText);
-            Debug.Log(randomNum);
-            clueBlock.Execute();*/
         }
+    }
+
+    public void EndGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("EndMenu");
     }
 }
 

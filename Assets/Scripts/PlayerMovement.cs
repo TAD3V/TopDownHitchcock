@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     //float lookingDirection = 0f;
     public Joystick joystick;
 
+    public SpriteRenderer sprite;
+
     public float runSpeed = 20.0f;
     //public float lookingForce = 20f;
 
@@ -30,6 +32,14 @@ public class PlayerMovement : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = SimpleInput.GetAxis("Horizontal"); // -1 is left
         vertical = SimpleInput.GetAxis("Vertical"); // -1 is down
+
+        if(horizontal <= -0.1)
+        {
+            sprite.flipX = true;
+        } else if(horizontal >=0.1)
+        {
+            sprite.flipX = false;
+        }
     }
 
     void FixedUpdate()
